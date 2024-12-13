@@ -6,20 +6,25 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // define collectEmployees and create new array to populate with data from the new arrays (based on user input) BUT stop when the array hits a length of 6 [0],[1],[2],[3],[4],[5])     !
 const collectEmployees = function () {
+const currentEmployee = ""
 const employeesArray = [];
 let runAgain = true;
 
 while (runAgain && employeesArray.length < 5) {
+
+  // for (let i = 0; i < employeesArray.length; i++){
+
     let firstName = prompt ("Hi there, what is your first name?", "Please enter your first name");
     let lastName = prompt ("Hi again, what is your last name?", "Please enter your last name");
     let salary = prompt ("One more thing! $$$", "Please enter your target salary");
+  
+    salary = parseFloat(salary);  //how do I keep track of decimal points in JS (float)  
 
     if (isNaN(salary)) {
         console.log('Not a Number');
-        } else ;
-        console.log(`Salary is a number! Can be used in the average calc`);
-
-    salary = Number(salary);    
+        } else {
+          console.log(`Salary is a number! Can be used in the average calc`);
+      }
 
     employeesArray.push({
         firstName: firstName,
@@ -28,28 +33,28 @@ while (runAgain && employeesArray.length < 5) {
     });
     
     runAgain = confirm("Add more Employees?");
-     if (runAgain) {
-    console.log ("Another employee added");
-    } else {
-    console.log ("No more employees to add");
-    // check if salary input is a number 
-    }
+    //  if (runAgain) {
+    //   console.log ("Another employee added");
+    // } else {
+    //   console.log ("No more employees to add");
+    // // check if salary input is a number 
+    // }
 
     console.log(employeesArray)
-
-    return employeesArray;
-};
+  };
+  return employeesArray;
 }
 
 // constant variable displayAverageSalary is defined with array function.
 // total Salary is defined and calculated, and then average salary is defined and calced.
+// reduce is a method below
 const displayAverageSalary = function (employeesArray) {
     const totalSalary = employeesArray.reduce((sum, employee) => sum + employee.salary, 0);
     const numberOfEmployees = employeesArray.length;
     const averageSalary = totalSalary / numberOfEmployees;
     const averageSalary2Decimals = averageSalary.toFixed(2);
     console.log (displayAverageSalary);
-    console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalary2Decimals} when given salaries with no decimals.`);
+    console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is ${averageSalary2Decimals} when given salaries with no decimals.`);
 };
 
 // Select a random employee
