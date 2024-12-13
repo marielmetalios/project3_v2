@@ -10,9 +10,7 @@ const collectEmployees = function () {
 const employeesArray = [];
 let runAgain = true;
 
-while (runAgain && employeesArray.length > 6) {
-        console.log("No more employees can be added!")
-    }
+while (runAgain) {
     let firstName = prompt ("Hi there, what is your first name?", "Please enter your first name");
     let lastName = prompt ("Hi again, what is your last name?", "Please enter your last name");
     let salary = prompt ("One more thing! $$$", "Please enter your target salary");
@@ -40,6 +38,7 @@ while (runAgain && employeesArray.length > 6) {
 
     return employeesArray;
 };
+}
 
 // constant variable displayAverageSalary is defined with array function.
 // total Salary is defined and calculated, and then average salary is defined and calced.
