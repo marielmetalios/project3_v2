@@ -4,13 +4,12 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // TODO: Get user input to create and return an array of employee objects
 
-
 // define collectEmployees and create new array to populate with data from the new arrays (based on user input) BUT stop when the array hits a length of 6 [0],[1],[2],[3],[4],[5])     !
 const collectEmployees = function () {
 const employeesArray = [];
 let runAgain = true;
 
-while (runAgain) {
+while (runAgain && employeesArray.length < 5) {
     let firstName = prompt ("Hi there, what is your first name?", "Please enter your first name");
     let lastName = prompt ("Hi again, what is your last name?", "Please enter your last name");
     let salary = prompt ("One more thing! $$$", "Please enter your target salary");
@@ -36,6 +35,8 @@ while (runAgain) {
     // check if salary input is a number 
     }
 
+    console.log(employeesArray)
+
     return employeesArray;
 };
 }
@@ -56,7 +57,7 @@ const getRandomEmployee = function (employeesArray) {
     const min = 0
     const max = employeesArray.length -1
     const i = Math.floor(Math.random() * (max - min + 1) ) + min;
-    console.log(`Congratulations to ${employeesArray.firstName} ${employeesArray.lastName}, our random drawing winner!`)
+    console.log(`Congratulations to ${employeesArray[i].firstName} ${employeesArray[i].lastName}, our random drawing winner!`);
     return employeesArray[i];
    
 };
