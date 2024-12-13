@@ -56,8 +56,9 @@ const getRandomEmployee = function (employeesArray) {
     const min = 0
     const max = employeesArray.length -1
     const i = Math.floor(Math.random() * (max - min + 1) ) + min;
-
+    console.log(`Congratulations to ${employeesArray.firstName} ${employeesArray.lastName}, our random drawing winner!`)
     return employeesArray[i];
+   
 };
 
 
