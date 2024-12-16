@@ -1,4 +1,3 @@
-// TODO: Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // id = add-employees-btn 
 
@@ -16,10 +15,8 @@ while (runAgain && employeesArray.length < 5) {
 
     let firstName = prompt ("Hi there, what is your first name?", "Please enter your first name");
     let lastName = prompt ("Hi again, what is your last name?", "Please enter your last name");
-    let salary = prompt ("One more thing! $$$", "Please enter your target salary");
+    let salary = parseFloat (prompt ("One more thing! $$$", "Please enter your target salary"));
   
-    salary = parseFloat(salary);  //how do I keep track of decimal points in JS (float)  
-
     if (isNaN(salary)) {
         console.log('Not a Number');
         } else {
@@ -54,7 +51,7 @@ const displayAverageSalary = function (employeesArray) {
     const averageSalary = totalSalary / numberOfEmployees;
     const averageSalary2Decimals = averageSalary.toFixed(2);
     console.log (displayAverageSalary);
-    console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is ${averageSalary2Decimals} when given salaries with no decimals.`);
+    console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalary.toFixed(2)} when given salaries with no decimals.`);
 };
 
 // Select a random employee
@@ -66,6 +63,8 @@ const getRandomEmployee = function (employeesArray) {
     return employeesArray[i];
    
 };
+
+
 
 
 
